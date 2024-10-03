@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <title>Gestión Escolar Tamanaco</title>
+</head>
+
+<body>
+    <main>
+        <header>
+            <nav class="navbar" style="background-color: #e3f2fd;">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">
+                        <img src="assets/img/logo.jpeg" alt="Bootstrap" width="30" height="24">
+                        Gestión escolar Tamanaco
+                    </a>
+                </div>
+            </nav>
+        </header>
+        <section class="container pt-4">
+            <ul class="nav nav-pills" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home"
+                        aria-selected="true">Actividades</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill"
+                        data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile"
+                        aria-selected="false">Planes de Evaluación</button>
+                </li>
+            </ul>
+            <div class="tab-content mt-3" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+                    <p>Actividades</p>
+                </div>
+                <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+                    <div class="alert alert-info d-md-none">
+                        Por favor seleccione una asignatura para visualizar su plan de evaluación
+                    </div>
+                    <h2>Planes de Evaluación</h2>
+                    <div class="row">
+                        <div class="col-12 col-md-3">
+                            <div class="list-group mb-3" id="list-plan-materias">
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-9">
+                            <div class="alert alert-info d-none d-md-block">
+                                Por favor seleccione una asignatura para visualizar su plan de evaluación
+                            </div>
+                            <h4 id="plan-anio"></h4>
+                            <h4 id="plan-materia" class="d-none"></h4>
+                            <table id="table-plan" class="table table-bordered d-none">
+                                <thead>
+                                    <tr>
+                                        <th>Tema</th>
+                                        <th>Fecha</th>
+                                        <th>Ponderación</th>
+                                        <th>Puntaje</th>
+                                        <th>Actividad</th>
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+        integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script type="module" src="assets/js/main.js"></script>
+</body>
+
+</html>
