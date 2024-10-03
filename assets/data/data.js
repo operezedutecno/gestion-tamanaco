@@ -37,7 +37,7 @@ export const momentos = {
     primer_momento: {
         nombre: "Primer Momento"
     },
-    segundi_momento: {
+    segundo_momento: {
         nombre: "Segundo Momento"
     },
     tercer_momento: {
@@ -204,6 +204,24 @@ export const actividades = {
             { materia: "ile", tema:"Actividad navideña", tipo_actividad:"an", ponderacion: 15, fecha_evaluacion:"2024-11-28"},
             { materia: "ile", tema:"Presentación, pulcritud, plan de evaluación, horario de clase, actividades desarrolladas en clase, firma del representante", tipo_actividad:"rc", ponderacion: 10, fecha_evaluacion:"2024-12-09"},
             
+            // Matemáticas
+            { materia: "ma", tema:"Refuerzo - nivelación", tipo_actividad:"te", ponderacion: 10, fecha_evaluacion:"2024-10-04"},
+            { materia: "ma", tema:"Números naturales (N), Operaciones Aritméticas, Orden en N y ecuaciones de primer grado en N", tipo_actividad:"pp", ponderacion: 10, fecha_evaluacion:"2024-10-11"},
+            { materia: "ma", tema:"Adición y sustracción con números Z y sus propiedades", tipo_actividad:"ti", ponderacion: 20, fecha_evaluacion:"2024-10-25"},
+            { materia: "ma", tema:"Producto y cociente con números Z y sus propiedades", tipo_actividad:"ej", ponderacion: 20, fecha_evaluacion:"2024-11-08"},
+            { materia: "ma", tema:"Potenciación en Z", tipo_actividad:"tp", ponderacion: 20, fecha_evaluacion:"2024-11-22"},
+            { materia: "ma", tema:"Números enteros, operaciones en Z, MCM, MCD.", tipo_actividad:"pp", ponderacion: 20, fecha_evaluacion:"2024-12-06"},
+
+
+            // Educación Física
+            { materia: "ef", tema:"Fundamentos Técnicos del Baloncesto • Tipos de Pase • Recepciones • Tipos de Saque", tipo_actividad:"pr", ponderacion: 10, fecha_evaluacion:"2024-10-21"},
+            { materia: "ef", tema:"Fundamentos Técnicos del Baloncesto • Tipos de Pase • Recepciones • Tipos de Saque", tipo_actividad:"infog", ponderacion: 15, fecha_evaluacion:"2024-10-28"},
+            { materia: "ef", tema:"Fundamentos Técnicos del Baloncesto • Driblin • Doble Paso • Lanzamientos", tipo_actividad:"pr", ponderacion: 15, fecha_evaluacion:"2024-11-11"},
+            { materia: "ef", tema:"Fundamentos Técnicos del Baloncesto • Driblin • Doble Paso Lanzamientos", tipo_actividad:"gl", ponderacion: 15, fecha_evaluacion:"2024-11-18"},
+            { materia: "ef", tema:"Prueba Ariet", tipo_actividad:"pr", ponderacion: 15, fecha_evaluacion:"2024-12-02"},
+            { materia: "ef", tema:"Movimientos angulares de las articulaciones. Estructura neuromuscular", tipo_actividad:"em", ponderacion: 15, fecha_evaluacion:"2024-12-09"},
+            { materia: "ef", tema:"Juegos Recreativos y Pre-deportivos", tipo_actividad:"pr", ponderacion: 10, fecha_evaluacion:"2024-12-09"},
+            { materia: "ef", tema:"Rasgos Uniformidad Puntualidad Asistencia", tipo_actividad:"dia", ponderacion: 5, fecha_evaluacion:"2024-12-09"},
         ]
     }
 }

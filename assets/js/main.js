@@ -13,11 +13,34 @@ const listarPlanMaterias = () => {
     }
 }
 
-const mostrarSeleccionados = () => {
-    $("#plan-anio").html(`${anios[anio_selected].nombre} - ${momentos[momento_selected].nombre}`)
+const listarActividades = () => {
+    let listActividades = actividades[anio_selected][momento_selected];
+    listActividades = listActividades.sort((a, b) => new Date(a.fecha_evaluacion) - new Date(b.fecha_evaluacion));
+    for (const actividad of listActividades) {
+        $("#table-actividades tbody").append(`
+            <tr>
+                <td>${anios[anio_selected].materias[actividad.materia].nombre}</td>
+                <td class="text-nowrap">${formatearFecha(actividad.fecha_evaluacion)}</td>
+                <td class="text-center">${actividad.ponderacion}%</td>
+                <td class="text-center">${calcularPuntaje(actividad.ponderacion)}</td>
+                <td class="text-center">${tiposActividades[actividad.tipo_actividad].nombre}</td>
+            </tr>
+        `)
+    }
 }
 
-const calcularPuntaje = (porcentaje) => (porcentaje * 20) / 100 
+const mostrarSeleccionados = () => {
+    $("#plan-anio, #actividades-anio").html(`${anios[anio_selected].nombre} - ${momentos[momento_selected].nombre}`)
+}
+
+const calcularPuntaje = (porcentaje) => (porcentaje * 20) / 100
+
+
+const formatearFecha = (dateString) => {
+    const [year, month, day] = dateString.split('-');
+  
+    return `${day}/${month}/${year}`;
+}
 $(() => {
     $(document).on("click","#list-plan-materias .list-group-item-action", function() {
         $("#list-plan-materias .list-group-item-action").removeClass("active");
@@ -40,7 +63,7 @@ $(() => {
             $("#table-plan tbody").append(`
                 <tr>
                     <td>${actividad.tema}</td>
-                    <td class="text-nowrap">${actividad.fecha_evaluacion}</td>
+                    <td class="text-nowrap">${formatearFecha(actividad.fecha_evaluacion)}</td>
                     <td class="text-center">${actividad.ponderacion}%</td>
                     <td class="text-center">${calcularPuntaje(actividad.ponderacion)}</td>
                     <td class="text-center">${tiposActividades[actividad.tipo_actividad].nombre}</td>
@@ -51,4 +74,5 @@ $(() => {
 
     listarPlanMaterias()
     mostrarSeleccionados()
+    listarActividades()
 })
