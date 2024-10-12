@@ -37,8 +37,19 @@
             </ul>
             <div class="tab-content mt-3" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <h2>Actividades</h2>
-                    <h4 id="actividades-anio"></h4>
+                    <div class="d-lg-flex justify-content-lg-between">
+                        <div>
+                            <h2>Actividades</h2>
+                            <h4 id="actividades-anio"></h4>
+                        </div>
+                        <div class="d-flex">
+                            <div>
+                                <label for="txt-buscar" class="form-label fw-bold">Buscar: </label>
+                                <input type="text" class="form-control" id="txt-buscar">
+                            </div>
+                        </div>
+                    </div>
+                    
                     <table id="table-actividades" class="table table-bordered">
                         <thead>
                             <tr>
@@ -92,6 +103,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
         integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
     <script type="module" src="assets/js/main.js"></script>
 </body>
 

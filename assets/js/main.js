@@ -13,9 +13,29 @@ const listarPlanMaterias = () => {
     }
 }
 
-const listarActividades = () => {
+const listarActividades = (busqueda = "") => {
     let listActividades = actividades[anio_selected][momento_selected];
+    const materias = Object.entries(anios[anio_selected].materias);
+    const busquedaMateria = materias.filter(item => item[1].nombre.toLowerCase().includes(busqueda)).map(item => item[0])
+    const busquedaTipoActividad = Object.entries(tiposActividades).filter(item => item[1].nombre.toLowerCase().includes(busqueda)).map(item => item[0])
+    console.log({ busquedaTipoActividad });
     listActividades = listActividades.sort((a, b) => new Date(a.fecha_evaluacion) - new Date(b.fecha_evaluacion));
+    if(busqueda !== "") {
+        listActividades = listActividades.filter(item => {
+            let contieneMateria = false
+            let contieneTipoActividad = false
+            if(busquedaMateria.length > 0) {
+                contieneMateria = busquedaMateria.some(valor => item.materia.toLowerCase().includes(valor.toLowerCase()));
+            }
+            if(busquedaTipoActividad.length > 0) {
+                contieneTipoActividad = busquedaTipoActividad.some(valor => item.tipo_actividad.toLowerCase().includes(valor.toLowerCase()));
+            }
+            const contieneFecha = moment(item.fecha_evaluacion).format('DD/MM/YYYY').includes(busqueda)
+
+            return contieneMateria || contieneFecha || contieneTipoActividad
+        })
+    }
+    $("#table-actividades tbody").html("")
     for (const actividad of listActividades) {
         $("#table-actividades tbody").append(`
             <tr>
@@ -70,6 +90,11 @@ $(() => {
                 </tr>
             `)
         }
+    })
+
+    $(document).on("keyup","#txt-buscar", function() {
+        const busqueda = String($(this).val()).toLowerCase()
+        listarActividades(busqueda)
     })
 
     listarPlanMaterias()
