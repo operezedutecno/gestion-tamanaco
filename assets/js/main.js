@@ -14,12 +14,28 @@ const listarPlanMaterias = () => {
 }
 
 const listarActividades = (busqueda = "") => {
-    let listActividades = actividades[anio_selected][momento_selected];
+    const mostrarTodo = $("#check-todos").is(':checked');
+    const fechaActual = moment().format('YYYY-MM-DD');
+
+    let listActividades = [ ...actividades[anio_selected][momento_selected]];
+    console.log(listActividades);
     const materias = Object.entries(anios[anio_selected].materias);
     const busquedaMateria = materias.filter(item => item[1].nombre.toLowerCase().includes(busqueda)).map(item => item[0])
     const busquedaTipoActividad = Object.entries(tiposActividades).filter(item => item[1].nombre.toLowerCase().includes(busqueda)).map(item => item[0])
-    console.log({ busquedaTipoActividad });
     listActividades = listActividades.sort((a, b) => new Date(a.fecha_evaluacion) - new Date(b.fecha_evaluacion));
+    listActividades = listActividades.filter(item => {
+        const fechaEvaluacion = item.fecha_evaluacion
+        console.log({ fechaEvaluacion, fechaActual });
+        if(!mostrarTodo) {
+            if(item.fecha_evaluacion < fechaActual) {
+                return false;
+            }
+        }
+        return item;
+    })
+
+    console.log({ busqueda });
+
     if(busqueda !== "") {
         listActividades = listActividades.filter(item => {
             let contieneMateria = false
@@ -35,6 +51,7 @@ const listarActividades = (busqueda = "") => {
             return contieneMateria || contieneFecha || contieneTipoActividad
         })
     }
+    console.log({ listActividades });
     $("#table-actividades tbody").html("")
     for (const actividad of listActividades) {
         $("#table-actividades tbody").append(`
@@ -96,6 +113,19 @@ $(() => {
         const busqueda = String($(this).val()).toLowerCase()
         listarActividades(busqueda)
     })
+
+    $('#check-todos').change(function() {
+        // if($(this).is(':checked')) {
+        //   // Acción cuando el checkbox está marcado
+        //   console.log('El checkbox ha sido marcado.');
+        // } else {
+        //   // Acción cuando el checkbox está desmarcado
+        //   console.log('El checkbox ha sido desmarcado.');
+        // }
+
+        const busqueda = String($("#txt-buscar").val()).toLowerCase()
+        listarActividades(busqueda)
+      });
 
     listarPlanMaterias()
     mostrarSeleccionados()
